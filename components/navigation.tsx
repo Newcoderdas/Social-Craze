@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import Image from 'next/image'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +21,7 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="text-2xl font-bold text-accent">
-            The Social Craze
+            <Image src="/assets/logo.png" alt="The Social Craze Logo" width={100} height={40} className="inline-block mr-2" />
           </Link>
 
           {/* Desktop Menu */}

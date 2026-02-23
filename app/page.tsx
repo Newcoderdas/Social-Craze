@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Digital Marketing Agency | Grow Your Brand Online',
     description: 'Elevate your brand with expert digital marketing services.',
-    url: 'https://example.com',
+    url: 'https://www.thesocialcraze.com',
     type: 'website',
   },
 }

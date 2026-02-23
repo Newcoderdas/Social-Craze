@@ -82,10 +82,8 @@ export function Footer() {
             <a href="#linkedin" className="text-foreground/70 hover:text-accent transition-colors" aria-label="LinkedIn">
               <Linkedin size={20} />
             </a>
-            <a href="#twitter" className="text-foreground/70 hover:text-accent transition-colors" aria-label="Twitter">
-              <Twitter size={20} />
-            </a>
-            <a href="#instagram" className="text-foreground/70 hover:text-accent transition-colors" aria-label="Instagram">
+            
+            <a href="https://www.instagram.com/thesocialcrazeofficial?igsh=MXRtdnBlZzNtZmdmcA==" className="text-foreground/70 hover:text-accent transition-colors" aria-label="Instagram">
               <Instagram size={20} />
             </a>
           </div>
