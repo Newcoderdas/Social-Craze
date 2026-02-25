@@ -48,7 +48,9 @@ export function Footer() {
             <h4 className="font-bold text-foreground mb-6">Company</h4>
             <ul className="space-y-3 text-sm">
               <li><Link href="/" className="text-foreground/70 hover:text-accent transition-colors">Home</Link></li>
+              <li><Link href="/about" className="text-foreground/70 hover:text-accent transition-colors">About</Link></li>
               <li><Link href="/services" className="text-foreground/70 hover:text-accent transition-colors">Services</Link></li>
+              <li><Link href="/portfolio" className="text-foreground/70 hover:text-accent transition-colors">Portfolio</Link></li>
               <li><Link href="/contact" className="text-foreground/70 hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -79,11 +81,7 @@ export function Footer() {
             © 2024 The Social Craze. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#linkedin" className="text-foreground/70 hover:text-accent transition-colors" aria-label="LinkedIn">
-              <Linkedin size={20} />
-            </a>
-            
-            <a href="https://www.instagram.com/thesocialcrazeofficial?igsh=MXRtdnBlZzNtZmdmcA==" className="text-foreground/70 hover:text-accent transition-colors" aria-label="Instagram">
+            <a href="https://www.instagram.com/thesocialcrazeofficial?igsh=MXRtdnBlZzNtZmdmcA==" target="_blank" rel="noreferrer" className="text-foreground/70 hover:text-accent transition-colors" aria-label="Instagram">
               <Instagram size={20} />
             </a>
           </div>

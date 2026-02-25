@@ -7,17 +7,34 @@ import { ModalPopup } from '@/components/modal-popup'
 import { useScrollTrigger } from '@/hooks/use-scroll-trigger'
 import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import { useState } from 'react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact The Social Craze | Get a Free Quote',
+  description:
+    'Contact The Social Craze for social media management, influencer & model marketing, photography, videography, ads, lead generation, and physical marketing campaigns across Pakistan and worldwide.',
+  openGraph: {
+    title: 'Contact The Social Craze | Get a Free Quote',
+    description:
+      'Talk to The Social Craze about social media, influencer, content, and performance marketing campaigns for your brand.',
+    url: 'https://www.thesocialcraze.com/contact',
+    type: 'website',
+  },
+  alternates: {
+    canonical: '/contact',
+  },
+}
 
 export default function Contact() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
+    service: '',
     message: '',
   })
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
@@ -25,12 +42,11 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsModalOpen(true)
-    // Reset form
-    setFormData({ name: '', email: '', company: '', message: '' })
+    setFormData({ name: '', email: '', service: '', message: '' })
   }
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero */}
@@ -40,17 +56,18 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold text-foreground mb-4"
+            className="text-4xl md:text-6xl font-bold text-foreground mb-4"
           >
-            Get In Touch
+            Get a Free Quote
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+            Tell us about your brand and the services you&apos;re interested in. We&apos;ll get back
+            to you with ideas and next steps for your campaign.
           </motion.p>
         </div>
       </section>
@@ -62,19 +79,19 @@ export default function Contact() {
             <ContactInfo
               icon={Mail}
               title="Email"
-              value="hello@nexus.com"
-              href="mailto:hello@nexus.com"
+              value="hello@socialcraze.com"
+              href="mailto:hello@socialcraze.com"
             />
             <ContactInfo
               icon={Phone}
               title="Phone"
-              value="+1 (555) 123-4567"
-              href="tel:+15551234567"
+              value="+92 000 0000000"
+              href="tel:+920000000000"
             />
             <ContactInfo
               icon={MapPin}
-              title="Address"
-              value="123 Business Ave, New York, NY 10001"
+              title="Location"
+              value="Pakistan – Available for campaigns nationwide and worldwide."
             />
           </div>
 
@@ -85,7 +102,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl mx-auto bg-card border border-border rounded-lg p-8"
           >
-            <h2 className="text-3xl font-bold text-foreground mb-8">Send us a Message</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-8">Talk to Us</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -120,16 +137,24 @@ export default function Contact() {
 
               <div>
                 <label className="block text-sm font-semibold text-foreground mb-2">
-                  Company
+                  Service Interested In
                 </label>
-                <input
-                  type="text"
-                  name="company"
-                  value={formData.company}
+                <select
+                  name="service"
+                  value={formData.service}
                   onChange={handleInputChange}
-                  placeholder="Your company name"
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                />
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select a service</option>
+                  <option value="social-media">Social Media Management</option>
+                  <option value="content-creation">Content Creation</option>
+                  <option value="influencer-marketing">Influencer &amp; Model Marketing</option>
+                  <option value="photo-video">Photography &amp; Videography</option>
+                  <option value="ads-leads">Advertising &amp; Lead Generation</option>
+                  <option value="physical-marketing">Physical Marketing &amp; Promotions</option>
+                  <option value="other">Multiple / Something else</option>
+                </select>
               </div>
 
               <div>
@@ -141,7 +166,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  placeholder="Tell us about your project..."
+                  placeholder="Tell us about your brand, goals, and timeline..."
                   rows={6}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                 />
@@ -154,7 +179,7 @@ export default function Contact() {
                 className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
               >
                 <Send size={20} />
-                Send Message
+                Get a Free Quote
               </motion.button>
             </form>
           </motion.div>
@@ -177,7 +202,7 @@ export default function Contact() {
             <Send className="w-8 h-8 text-primary" />
           </motion.div>
           <p className="text-foreground mb-4">
-            Thank you for reaching out! We'll get back to you within 24 hours.
+            Thank you for reaching out! We&apos;ll get back to you as soon as possible.
           </p>
           <button
             onClick={() => setIsModalOpen(false)}
@@ -230,3 +255,4 @@ function ContactInfo({
     </motion.div>
   )
 }
+
